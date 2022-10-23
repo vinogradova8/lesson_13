@@ -1,0 +1,349 @@
+@import "reset.css";
+
+.wrapper {
+	position: relative;
+	overflow: hidden;
+	min-height: 100%;
+}
+
+.practice {
+	background-color: rgb(169, 146, 226);
+	width: 100%;
+	position: relative;
+}
+
+.hover {
+	margin: 15px;
+	height: 130px;
+	width: 130px;
+	background-color: rgb(240, 230, 156);
+	display: inline-block;
+}
+
+.hover__object {
+	margin: 0 auto;
+	border-radius: 63% 37% 70% 30% / 20% 18% 82% 80%;
+	height: 100px;
+	width: 100px;
+	background-color: rgb(31, 235, 48);
+	transform: scale(0);
+}
+
+.hover:hover .hover__object{
+	transition: 3s 1s;
+	transform: scale(1);
+	background-color: rgb(255, 251, 5);
+}
+
+.hover:hover {
+	background-color: rgb(237, 134, 134);
+	transition: 3s 1s;
+}
+
+.circle__position {
+	position: relative;
+	min-height: 100px;
+}
+
+.circle__object {
+	position: absolute;
+	left: 0px;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	overflow: hidden;
+	animation: circle-move 5s linear infinite alternate, circle-shape 0.5s ease-in infinite alternate, circle-rotate 0.5s linear infinite;
+}
+
+@keyframes circle-move {
+	0% {
+		left: 0px;
+	}
+	100% {
+		left: 95%;
+	}
+}
+
+@keyframes circle-shape {
+	0% {
+		border-radius: 50%;
+	}
+	100% {
+		border-radius: 0%;
+	}
+}
+
+@keyframes circle-rotate {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.circle__top {
+	height: 35px;
+	background-color: rgb(7, 192, 249);
+}
+.circle__bottom {
+	height: 35px;
+	background-color: rgb(255, 251, 5);
+}
+
+.text {
+	font-size: 20px;
+	margin: 0 auto;
+	color: #fff;
+	max-width: 250px;
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+
+.text__title {
+	text-transform: uppercase;
+	transform: translate(-60px);
+	margin-bottom: 10px;
+	animation: title 1s ease-out 1s 1 forwards;
+	position: relative;
+	line-height: 1.3;
+}
+
+@keyframes title {
+	0% {
+		transform: translate(-60px);
+	}
+	100% {
+		transform: translate(45px,0);
+	}
+}
+
+.text__title::before {
+	content: "";
+	display: inline-block;
+	height: 2px;
+	width: 55px;
+	background-color: #fff;
+	position: absolute;
+	bottom: 0;
+}
+
+.text__title:hover::before {
+	animation: before 0.5s linear 1 forwards;
+}
+
+@keyframes before {
+	0% {
+		width: 40px;
+	}
+	100% {
+		width: 0px;
+	}
+}
+
+.text__title::after {
+	content: "";
+	display: inline-block;
+	height: 2px;
+	width: 0px;
+	background-color: #fff;
+	position: absolute;
+	top: 0;
+	left: 55px;
+	transition: 1s;
+}
+
+.text__title:hover::after {
+	animation: after 0.5s linear 1 forwards;
+}
+
+@keyframes after {
+	0% {
+		width: 0px;
+	}
+	100% {
+		width: 55px;
+		left: 0;
+	}
+}
+
+.text__main {
+	line-height: 1.2;
+	font-size: 16px;
+	transform: translate(250px);
+	animation: text 2s ease-out 2s 1 forwards;
+}
+
+@keyframes text {
+	0% {
+		transform: translate(250px);
+	}
+	100% {
+		transform: translate(0,0);
+	}
+}
+
+
+.picture {
+	background: url("../img/pexels-photo-327434.webp") 0 0/cover no-repeat;
+	width: 100%;
+	height: 800px;
+	position: relative;
+}
+
+.picture__ship {
+	animation: ship-translate 15s linear 1s infinite backwards, ship-rotate 1s linear infinite alternate backwards;
+	position: absolute;
+	bottom: 80px;
+	left: 100px;
+	height: 200px;
+	width: 200px;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+.picture__ship:hover {
+	animation-play-state: paused;
+}
+
+@keyframes ship-translate {
+	0% {
+		left: -200px;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+@keyframes ship-rotate {
+	0% {
+		transform: rotate(-3deg);
+	}
+	100% {
+		transform: rotate(3deg);
+	}
+}
+
+.picture__sun {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-color: rgb(247, 239, 4);
+	box-shadow: 2px 2px 4px rgb(247, 203, 4), 2px -2px 4px rgb(247, 203, 4), -2px 2px 4px rgb(247, 203, 4), -2px -2px 4px rgb(247, 203, 4);
+	position: absolute;
+	top: 100px;
+	right: 100px;
+	animation: sun-shine 3s linear infinite alternate backwards;
+}
+
+@keyframes sun-shine {
+	0% {
+		transform: scale(1);
+		box-shadow: 6px 6px 4px rgb(247, 203, 4), 6px -6px 4px rgb(247, 203, 4), -6px 6px 4px rgb(247, 203, 4), -6px -6px 4px rgb(247, 203, 4);
+	}
+	100% {
+		transform: scale(1.3);
+		box-shadow: 2px 2px 8px rgb(247, 203, 4), 2px -2px 8px rgb(247, 203, 4), -2px 2px 8px rgb(247, 203, 4), -2px -2px 8px rgb(247, 203, 4);
+	}
+}
+
+.picture__fish {
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	right: 20px;
+	bottom: 40px;
+	animation: fish-jump 0.5s ease infinite alternate, fish-move 10s linear infinite, fish-rotate 10s infinite forwards;
+}
+
+@keyframes fish-jump {
+	0% {
+		bottom: 40px;
+		opacity: 0;
+	}
+	100% {
+		bottom: 80px;
+		opacity: 1;
+	}
+}
+
+@keyframes fish-move {
+	0% {
+		right: 20px;
+	}
+	100% {
+		right: 100%;
+	}
+}
+
+@keyframes fish-rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(0deg);
+	}
+	30% {
+		transform: rotate(-360deg);
+	}
+	55% {
+		transform: rotate(-360deg);
+	}
+	60% {
+		transform: rotate(0deg);
+	}
+	80% {
+		transform: rotate(0deg);
+	}
+	85% {
+		transform: rotate(-360deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+.picture__sky div:first-child {
+	position: absolute;
+	top: 200px;
+	left: 800px;
+	height: 70px;
+	animation: cloud-move 4s linear 2s infinite alternate;
+}
+
+.picture__sky div:nth-child(2) {
+	position: absolute;
+	top: 200px;
+	left: 150px;
+	height: 100px;
+	animation: cloud-move 2s linear 2s infinite alternate;
+}
+
+.picture__sky div:nth-child(3) {
+	position: absolute;
+	top: 100px;
+	left: 500px;
+	height: 80px;
+	animation: cloud-move 4s ease 2s infinite alternate;
+}
+
+.picture__sky div:last-child {
+	position: absolute;
+	top: 70px;
+	left: 1100px;
+	height: 120px;
+	animation: cloud-move 3s linear 2s infinite alternate;
+}
+
+@keyframes cloud-move {
+	0% {
+		transform: translate(0,0);
+	}
+	100% {
+		transform: translate(30px,0);
+	}
+}
+
